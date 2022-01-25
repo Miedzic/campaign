@@ -37,7 +37,7 @@ public class CampaignController {
     @PostMapping
     @Validated(Create.class)
     public CampaignDto saveCampaign(@RequestBody @Valid CampaignDto campaign) {
-        return campaignMapper.campaignToCampaignDto(campaignService.save(campaignMapper.campaignDtoToCampaign(campaign), campaign.getProductId(), campaign.getTownId(),null));
+        return campaignMapper.campaignToCampaignDto(campaignService.save(campaignMapper.campaignDtoToCampaign(campaign), campaign.getProductId(), campaign.getTownId()));
     }
     @DeleteMapping("/{id}")
     public void deleteCampaignById(@PathVariable Long id) {

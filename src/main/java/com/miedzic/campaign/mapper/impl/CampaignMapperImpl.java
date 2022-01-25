@@ -1,3 +1,4 @@
+/*
 package com.miedzic.campaign.mapper.impl;
 
 import com.miedzic.campaign.domain.dao.Campaign;
@@ -31,3 +32,4 @@ public class CampaignMapperImpl implements CampaignMapper {
     }
 
 }
+*/

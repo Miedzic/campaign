@@ -1,3 +1,4 @@
+/*
 package com.miedzic.campaign.mapper.impl;
 
 import com.miedzic.campaign.domain.dao.Product;
@@ -22,4 +23,4 @@ public class ProductMapperImpl implements ProductMapper {
                 .name(product.getName())
                 .build();
     }
-}
+}*/

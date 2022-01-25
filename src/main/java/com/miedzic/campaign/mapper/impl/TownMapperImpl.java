@@ -1,3 +1,4 @@
+/*
 package com.miedzic.campaign.mapper.impl;
 
 import com.miedzic.campaign.domain.dao.Town;
@@ -23,3 +24,4 @@ public class TownMapperImpl implements TownMapper {
                 .build();
     }
 }
+*/
