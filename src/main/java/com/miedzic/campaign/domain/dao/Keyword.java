@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+
 public class Keyword {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

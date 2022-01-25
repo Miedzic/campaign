@@ -6,10 +6,9 @@ import com.miedzic.campaign.domain.dto.CampaignDto;
 import org.mapstruct.Mapper;
 
 import java.util.List;
-
-@Mapper(componentModel = "spring")
+//@Mapper(componentModel = "spring")
 public interface CampaignMapper {
-    CampaignDto campaigntoCampaignDto(Campaign campaign);
+    CampaignDto campaignToCampaignDto(Campaign campaign);
 
     Campaign campaignDtoToCampaign(CampaignDto campaignDto);
 

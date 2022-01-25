@@ -2,6 +2,7 @@ package com.miedzic.campaign.controller;
 
 
 import com.miedzic.campaign.domain.dao.Campaign;
+import com.miedzic.campaign.domain.dao.Keyword;
 import com.miedzic.campaign.domain.dao.Product;
 import com.miedzic.campaign.domain.dto.CampaignDto;
 import com.miedzic.campaign.domain.dto.ProductDto;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/campaigns")
@@ -28,14 +31,14 @@ public class CampaignController {
 
     @GetMapping("/{id}")
     public CampaignDto getCampaignById(@PathVariable Long id) {
-        return campaignMapper.campaigntoCampaignDto(campaignService.getById(id));
+        return campaignMapper.campaignToCampaignDto(campaignService.getById(id));
     }
+
     @PostMapping
     @Validated(Create.class)
     public CampaignDto saveCampaign(@RequestBody @Valid CampaignDto campaign) {
-        return campaignMapper.campaigntoCampaignDto(campaignService.save(campaignMapper.campaignDtoToCampaign(campaign), campaign.getProductId(), campaign.getTownId(),null));
+        return campaignMapper.campaignToCampaignDto(campaignService.save(campaignMapper.campaignDtoToCampaign(campaign), campaign.getProductId(), campaign.getTownId(),null));
     }
-
     @DeleteMapping("/{id}")
     public void deleteCampaignById(@PathVariable Long id) {
         campaignService.deleteById(id);
@@ -43,7 +46,7 @@ public class CampaignController {
 
     @PutMapping("/{id}")
     public CampaignDto updateCampaign(@RequestBody CampaignDto campaign, @PathVariable Long id) {
-        return campaignMapper.campaigntoCampaignDto(campaignService.update(campaignMapper.campaignDtoToCampaign(campaign),id, campaign.getProductId(), campaign.getTownId()));
+        return campaignMapper.campaignToCampaignDto(campaignService.update(campaignMapper.campaignDtoToCampaign(campaign),id, campaign.getProductId(), campaign.getTownId()));
     }
 
     @GetMapping
