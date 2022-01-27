@@ -9,7 +9,9 @@ public interface KeywordService {
 
     Keyword update(Keyword keyword, Long id);
 
-    void delete(Keyword keyword);
+    void deleteById(Long id);
+
+    Keyword getById(Long id);
 
     List<Keyword> findKeywords(List<String> keywords);
 }

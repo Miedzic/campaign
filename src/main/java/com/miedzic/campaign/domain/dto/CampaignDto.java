@@ -20,6 +20,8 @@ public class CampaignDto {
     private String name;
     private Long productId;
     private Long townId;
+    private String townName;
+    private String productName;
     @NotNull
     private List<String> keywords;
     @NotNull

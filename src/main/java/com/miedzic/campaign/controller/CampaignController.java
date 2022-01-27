@@ -37,7 +37,7 @@ public class CampaignController {
     @PostMapping
     @Validated(Create.class)
     public CampaignDto saveCampaign(@RequestBody @Valid CampaignDto campaign) {
-        return campaignMapper.campaignToCampaignDto(campaignService.save(campaignMapper.campaignDtoToCampaign(campaign), campaign.getProductId(), campaign.getTownId()));
+        return campaignMapper.campaignToCampaignDto(campaignService.save(campaignMapper.campaignDtoToCampaign(campaign), campaign.getProductId(), campaign.getTownId(),campaign.getKeywords()));
     }
     @DeleteMapping("/{id}")
     public void deleteCampaignById(@PathVariable Long id) {
@@ -46,13 +46,15 @@ public class CampaignController {
 
     @PutMapping("/{id}")
     public CampaignDto updateCampaign(@RequestBody CampaignDto campaign, @PathVariable Long id) {
-        return campaignMapper.campaignToCampaignDto(campaignService.update(campaignMapper.campaignDtoToCampaign(campaign),id, campaign.getProductId(), campaign.getTownId()));
+        return campaignMapper.campaignToCampaignDto(campaignService.update(campaignMapper.campaignDtoToCampaign(campaign),id, campaign.getProductId(), campaign.getTownId(),campaign.getKeywords()));
     }
 
     @GetMapping
     public Page<Campaign> getCampaignPage(@RequestParam int page, @RequestParam int size) {
         return campaignService.getPage(PageRequest.of(page, size));
     }
+
+    //no more of use
     @GetMapping("/all")
     public List<Campaign> getCampaignProducts() {
         return campaignService.getAllProducts();

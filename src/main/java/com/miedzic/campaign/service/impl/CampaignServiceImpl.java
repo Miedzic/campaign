@@ -22,16 +22,16 @@ public class CampaignServiceImpl implements CampaignService {
     private final KeywordService keywordService;
 
     @Override
-    public Campaign save(final Campaign campaign, Long productId, Long townId/*, List<String> keywords*/) {
+    public Campaign save(final Campaign campaign, Long productId, Long townId, List<String> keywords) {
         campaign.setProduct(productService.getById(productId));
         campaign.setTown(townService.getById(townId));
-      //  campaign.setKeywords(keywordService.findKeywords(keywords));
+        campaign.setKeywords(keywordService.findKeywords(keywords));
 
         return campaignRepository.save(campaign);
     }
 
     @Override
-    public Campaign update(final Campaign campaign, final Long id, Long productId, Long townId) {
+    public Campaign update(final Campaign campaign, final Long id, Long productId, Long townId, List<String> keywords) {
         Campaign campaignDb = campaignRepository.getById(id);
 
         campaignDb.setName(campaign.getName());
